@@ -31,22 +31,35 @@ export default function App() {
       return;
     }
     let cancelled = false;
+
+    // Timeout fallback: if isCallerAdmin() hangs, unblock rendering after 10s
+    const timeout = setTimeout(() => {
+      if (!cancelled) {
+        console.warn("isCallerAdmin() timed out, defaulting to non-admin");
+        setIsAdmin(false);
+        setRoleLoaded(true);
+      }
+    }, 10000);
+
     actor
       .isCallerAdmin()
       .then((admin) => {
         if (!cancelled) {
+          clearTimeout(timeout);
           setIsAdmin(admin);
           setRoleLoaded(true);
         }
       })
       .catch(() => {
         if (!cancelled) {
+          clearTimeout(timeout);
           setIsAdmin(false);
           setRoleLoaded(true);
         }
       });
     return () => {
       cancelled = true;
+      clearTimeout(timeout);
     };
   }, [isAuthenticated, actor, isFetching]);
 
