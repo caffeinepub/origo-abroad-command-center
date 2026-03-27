@@ -1,0 +1,91 @@
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Satoshi:wght@300..700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Dark professional SaaS — Origo Abroad */
+    --background: 0.118 0.02 219;
+    --foreground: 0.934 0.017 218;
+
+    --card: 0.157 0.025 219;
+    --card-foreground: 0.934 0.017 218;
+
+    --popover: 0.142 0.022 219;
+    --popover-foreground: 0.934 0.017 218;
+
+    --primary: 0.548 0.196 264;
+    --primary-foreground: 0.98 0.005 264;
+
+    --secondary: 0.21 0.03 218;
+    --secondary-foreground: 0.934 0.017 218;
+
+    --muted: 0.18 0.025 219;
+    --muted-foreground: 0.677 0.039 215;
+
+    --accent: 0.82 0.15 196;
+    --accent-foreground: 0.12 0.02 219;
+
+    --destructive: 0.577 0.217 25;
+    --destructive-foreground: 0.98 0.005 25;
+
+    --border: 0.214 0.03 218;
+    --input: 0.214 0.03 218;
+    --ring: 0.548 0.196 264;
+
+    --radius: 0.5rem;
+
+    --chart-1: 0.548 0.196 264;
+    --chart-2: 0.82 0.15 196;
+    --chart-3: 0.72 0.19 145;
+    --chart-4: 0.72 0.18 62;
+    --chart-5: 0.577 0.217 25;
+
+    --sidebar: 0.135 0.022 219;
+    --sidebar-foreground: 0.934 0.017 218;
+    --sidebar-primary: 0.548 0.196 264;
+    --sidebar-primary-foreground: 0.98 0.005 264;
+    --sidebar-accent: 0.18 0.025 219;
+    --sidebar-accent-foreground: 0.934 0.017 218;
+    --sidebar-border: 0.214 0.03 218;
+    --sidebar-ring: 0.548 0.196 264;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    color-scheme: dark;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: oklch(0.135 0.022 219);
+}
+::-webkit-scrollbar-thumb {
+  background: oklch(0.214 0.03 218);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: oklch(0.28 0.04 218);
+}
